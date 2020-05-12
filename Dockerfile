@@ -9,5 +9,6 @@ RUN yum install jenkins -y
 RUN echo -e "jenkins ALL=(ALL) NOPASSWD:ALL">> /etc/sudoers
 USER jenkins
 ENV JENKINS_USER jenkins
+EXPOSE 8080
 
 CMD ["java","-jar","/usr/lib/jenkins/jenkins.war"]
