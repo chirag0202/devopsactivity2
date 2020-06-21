@@ -9,6 +9,9 @@ RUN yum install jenkins -y
 RUN yum install openssh-server -y
 RUN sudo yum install git -y
 RUN echo -e "jenkins ALL=(ALL) NOPASSWD:ALL">> /etc/sudoers
+RUN sudo yum install -y yum-utils 
+RUN sudo yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+RUN sudo yum install docker-ce docker-ce-cli containerd.io -y
 USER jenkins
 ENV JENKINS_USER jenkins
 EXPOSE 8080
