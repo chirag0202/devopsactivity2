@@ -20,9 +20,10 @@ RUN mkdir /root/.kube/
 ADD ./.kube/ /root/.kube/
 RUN mkdir /root/.minikube/
 ADD ./.minikube/ /root/.minikube/
+RUN dockerd
 USER jenkins
 ENV JENKINS_USER jenkins
 EXPOSE 8080
 EXPOSE 22
-CMD ["/usr/sbin/sshd","-D"
+CMD ["/usr/sbin/sshd","-D"]
 CMD ["java","-jar","/usr/lib/jenkins/jenkins.war"]
